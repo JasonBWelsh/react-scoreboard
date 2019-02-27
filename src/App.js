@@ -1,37 +1,66 @@
 import React, { Component } from 'react';
 import './App.css';
+// import { prependOnceListener } from 'cluster';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className="App-header">
-      <h1>Scoreboard</h1>
-      <span className="stats">Players: 3</span>
+      <h1>{ props.title }</h1>
+      <span className="stats">Players: { props.totalPlayers }</span>
     </header>
   );
 }
 
-const Player = () => {
+class Counter extends Component {
+
+  state = {
+    score: 0,
+  };
+
+  incrementScore() {
+    console.log('DRD __ `incrementScore`');
+    // setState({
+    //   this.state.score: 
+    // });
+  }
+
+  decrementScore() {
+    console.log('DRD __ `decrementScore`');
+  }
+
+  render() {
+    return (
+      <div className="counter">
+        <button className="counter-action decrement" onClick={this.decrementScore}> - </button>
+        <span className="counter-score">{this.state.score}</span>
+        <button className="counter-action increment" onClick={this.incrementScore}> + </button>
+      </div>
+    );
+  }
+}
+
+const Player = (props) => {
   return (
     <div className="player">
       <span className="player-name">
-        Player Name
+        {props.playerName}
       </span>
-      <div className="counter">
-        <button className="counter-action decrement"> - </button>
-        <span className="counter-score">99</span>
-        <button className="counter-action increment"> + </button>
-      </div>
+      <Counter />
     </div>
   );
 }
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-       <Header />
-       <Player />
-       <Player />
-       <Player />
+      <div className="scoreboard">
+       <Header title="Scoreboard" totalPlayers={this.props.initialPlayers.length} />
+       {/* generate Player component for each player in array */}
+       {this.props.initialPlayers.map(player => 
+        <Player 
+          playerName={player.playerName} 
+          key={player.id.toString()} 
+        />)}
       </div>
     );
   }
