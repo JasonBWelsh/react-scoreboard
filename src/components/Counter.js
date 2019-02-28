@@ -6,22 +6,20 @@ export class Counter extends Component {
       this.state = {
         score: 0
       }
-      this.incrementScore = this.incrementScore.bind(this);
-      this.decrementScore = this.decrementScore.bind(this);
     }
   
-    incrementScore() {
+    incrementScore = () =>  {
       console.log('DRD __ `incrementScore`');
-      this.setState({
-        score: this.state.score + 1
-      });
+      this.setState(prevState => ({
+            score: prevState.score + 1
+      }));
     }
   
-    decrementScore() {
+    decrementScore = () => {
       console.log('DRD __ `decrementScore`');
-      this.setState({
-        score: this.state.score - 1
-      });
+      this.setState( prevState => ({
+            score: prevState.score - 1
+      }));
     }
   
     render() {
