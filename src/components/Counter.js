@@ -7,20 +7,20 @@ export class Counter extends Component {
         score: 0
       }
     }
-  
+
     incrementScore = () =>  {
-      console.log('DRD __ `incrementScore`');
-      this.setState(prevState => ({
+        console.log('DRD __ `incrementScore`');
+        this.setState(prevState => ({
             score: prevState.score + 1
-      }));
-    }
-  
-    decrementScore = () => {
-      console.log('DRD __ `decrementScore`');
-      this.setState( prevState => ({
+        }));
+      }
+    
+      decrementScore = () => {
+        console.log('DRD __ `decrementScore`');
+        this.setState( prevState => ({
             score: prevState.score - 1
-      }));
-    }
+        }));
+      }
   
     render() {
       return (

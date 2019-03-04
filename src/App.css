@@ -1,3 +1,5 @@
+/* Base Styles */
+
 * {
   box-sizing: border-box;
 }
@@ -9,8 +11,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: whitesmoke;
+  background: #767676;
   color: white;
+}
+
+/* App */
+
+.app-wrapper {
+  min-width: 20em;
 }
 
 .scoreboard { /* outermost div in App.js */
@@ -18,14 +26,27 @@ body {
   background-color: #282c34;
 }
 
+.App-link {
+  color: #61dafb;
+}
+
+/* Header */
 .App-header {
   /* animation: spin infinite 20s linear;  */
   font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: #61dafb;
+/* Player */
+.player {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1em 0;
+  border: 1px solid whitesmoke;
+  padding: .5em;
 }
+
+/* Counter */
 
 /* @keyframes spin {
   from {
