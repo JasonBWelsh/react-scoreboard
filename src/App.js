@@ -35,7 +35,7 @@ class App extends Component {
     console.log('DRD __ `handleRemovePlayer');
     this.setState( prevState => {
       return {
-        score: prevState.players.filter( p => p.id !== id )
+        players: prevState.players.filter( p => p.id !== id )
       };
     });
   }

@@ -1,18 +1,5 @@
 import React from 'react';
 
-    // incrementScore = () =>  {
-    //     console.log('DRD __ `incrementScore`');
-    //     this.setState(prevState => ({
-    //         score: prevState.score + 1
-    //     }));
-    //   }
-    
-    //   decrementScore = () => {
-    //     console.log('DRD __ `decrementScore`');
-    //     this.setState( prevState => ({
-    //         score: prevState.score - 1
-    //     }));
-    //   }
 export const Counter = (props) => {
 
     let index = props.index;
