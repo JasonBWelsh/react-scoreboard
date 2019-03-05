@@ -10,19 +10,23 @@ class App extends Component {
     players : [
       {
         playerName: 'Arwen',
-        id: 1
+        id: 1,
+        score: 0
       },
       {
         playerName: 'Moya',
-        id: 2
+        id: 2,
+        score: 0
       },
       {
         playerName: 'Senor',
-        id: 3
+        id: 3,
+        score: 0
       },
       {
         playerName: 'Lily',
-        id: 4
+        id: 4,
+        score: 0
       }
     ]
   }
@@ -31,7 +35,17 @@ class App extends Component {
     console.log('DRD __ `handleRemovePlayer');
     this.setState( prevState => {
       return {
-        players: prevState.players.filter( p => p.id !== id )
+        score: prevState.players.filter( p => p.id !== id )
+      };
+    });
+  }
+
+  handleScoreChange = (index, delta) => {
+    console.log('DRD __ `handleScoreChange');
+    console.log('DRD __ `handleScoreChange` logging `index` and `delta`:::', index, delta);
+    this.setState( prevState => {
+      return {
+        score: prevState.players[index].score += delta
       };
     });
   }
@@ -42,12 +56,15 @@ class App extends Component {
         <div className="scoreboard">
         <Header title="Scoreboard" totalPlayers={this.state.players.length} />
         {/* generate Player component for each player in array */}
-        {this.state.players.map(player => 
+        {this.state.players.map((player, index) => 
           <Player 
             playerName={player.playerName}
+            score={player.score}
             id={player.id} 
-            key={player.id.toString()} 
+            key={player.id.toString()}
+            index={index} 
             removePlayer={this.handleRemovePlayer}
+            changeScore={this.handleScoreChange}
           />)}
         </div>
       </main>
