@@ -46,6 +46,12 @@ body {
   padding: .5em;
 }
 
+/* utility classes */
+.top-score {
+  background: whitesmoke;
+  color: #282c34;
+}
+
 /* Counter */
 
 /* @keyframes spin {
