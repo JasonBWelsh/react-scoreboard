@@ -55,8 +55,9 @@ class App extends Component {
         <div className="scoreboard">
         <Header
           title="Scoreboard"
-          totalPlayers={this.state.players.length}
-          totalPoints={this.state.players.reduce((total, player) => total += player.score, 0)}
+          players={this.state.players}
+          // totalPlayers={this.state.players.length}
+          // totalPoints={this.state.players.reduce((total, player) => total += player.score, 0)}
         />
         {/* generate Player component for each player in array */}
         {this.state.players.map((player, index) =>

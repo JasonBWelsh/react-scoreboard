@@ -4,11 +4,12 @@ import { Stats } from './Stats';
 export const Header = (props) => {
     return (
       <header className="App-header">
-        <h1>{ props.title }</h1>
         <Stats
-          totalPlayers={props.totalPlayers}
-          totalPoints={props.totalPoints} 
+          // totalPlayers={props.totalPlayers}
+          // totalPoints={props.totalPoints}
+          players={props.players}
         />
+        <h1>{ props.title }</h1>
       </header>
     );
 }

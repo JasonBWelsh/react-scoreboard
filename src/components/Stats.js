@@ -1,10 +1,22 @@
 import React from 'react';
 
 export const Stats = (props) => {
+
+  let totalPlayers = props.players.length;
+  let totalPoints = props.players.reduce((total, player) => total + player.score,0);
+
   return (
-    <React.Fragment>
-      <span className="stats">Players: {props.totalPlayers}</span>
-      <span className="stats">Points: {props.totalPoints}</span>
-    </React.Fragment>
+    <table className="stats">
+      <tbody>
+        <tr>
+          <td>Players:</td>
+          <td>{totalPlayers}</td>
+        </tr>
+        <tr>
+          <td>Total Points:</td>
+          <td>{totalPoints}</td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
