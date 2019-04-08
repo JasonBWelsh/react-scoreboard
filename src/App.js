@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from './components/Header';
-import { Player } from './components/Player'; 
+import { Player } from './components/Player';
 import './App.css';
-// import { prependOnceListener } from 'cluster';
 
 class App extends Component {
 
@@ -54,15 +53,19 @@ class App extends Component {
     return (
       <main className="app-wrapper">
         <div className="scoreboard">
-        <Header title="Scoreboard" totalPlayers={this.state.players.length} />
+        <Header
+          title="Scoreboard"
+          totalPlayers={this.state.players.length}
+          totalPoints={this.state.players.reduce((total, player) => total += player.score, 0)}
+        />
         {/* generate Player component for each player in array */}
-        {this.state.players.map((player, index) => 
-          <Player 
+        {this.state.players.map((player, index) =>
+          <Player
             playerName={player.playerName}
             score={player.score}
-            id={player.id} 
+            id={player.id}
             key={player.id.toString()}
-            index={index} 
+            index={index}
             removePlayer={this.handleRemovePlayer}
             changeScore={this.handleScoreChange}
           />)}
