@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header } from './components/Header';
 import { Player } from './components/Player';
+import AddPlayerForm from './components/AddPlayerForm';
 import './App.css';
 
 class App extends Component {
@@ -70,6 +71,7 @@ class App extends Component {
             removePlayer={this.handleRemovePlayer}
             changeScore={this.handleScoreChange}
           />)}
+          <AddPlayerForm />
         </div>
       </main>
     );
