@@ -50,6 +50,14 @@ class App extends Component {
     });
   }
 
+  handleAddPlayer = (value) => {
+    this.setState( prevState => {
+      return {
+        players: [...prevState.players, value]
+      };
+    });
+  }
+
   render() {
     return (
       <main className="app-wrapper">
@@ -71,7 +79,10 @@ class App extends Component {
             removePlayer={this.handleRemovePlayer}
             changeScore={this.handleScoreChange}
           />)}
-          <AddPlayerForm />
+          <AddPlayerForm
+            addPlayer={this.handleAddPlayer}
+            newPlayerId={this.state.players.length + 1}
+          />
         </div>
       </main>
     );

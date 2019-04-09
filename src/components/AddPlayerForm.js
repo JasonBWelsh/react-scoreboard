@@ -10,6 +10,17 @@ class AddPlayerForm extends Component {
     this.setState({ value: e.target.value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let player = {
+      playerName: this.state.value,
+      id: this.props.newPlayerId,
+      score: 0
+    };
+    console.log('DRD __ `handleSubmit` and `player`:::', player);
+    this.props.addPlayer(player);
+  }
+
   render() {
     return (
       <form>
@@ -22,6 +33,7 @@ class AddPlayerForm extends Component {
         <input
           type="submit"
           value="Add Player"
+          onClick={this.handleSubmit}
         />
       </form>
     );
