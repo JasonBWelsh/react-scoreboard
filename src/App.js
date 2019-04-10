@@ -50,15 +50,28 @@ class App extends Component {
     });
   }
 
-  handleAddPlayer = (value) => {
-    this.setState( prevState => {
-      return {
-        players: [...prevState.players, value]
-      };
+  handleAddPlayer = (name) => {
+    console.log('DRD __ inside `handleAddPlayer` logging `name`:::', name);
+    let newPlayerId = this.state.players[this.state.players.length - 1].id + 1;
+    this.setState({
+      players: [
+        ...this.state.players,
+        {
+          playerName: name,
+          id: newPlayerId,
+          score: 0
+        }
+      ]
     });
+    // this.setState( prevState => {
+    //   return {
+    //     players: [...prevState.players, name]
+    //   };
+    // });
   }
 
   render() {
+
     return (
       <main className="app-wrapper">
         <div className="scoreboard">
@@ -81,7 +94,7 @@ class App extends Component {
           />)}
           <AddPlayerForm
             addPlayer={this.handleAddPlayer}
-            newPlayerId={this.state.players[this.state.players.length -1].id + 1}
+            // newPlayerId={newPlayerId}
           />
         </div>
       </main>
