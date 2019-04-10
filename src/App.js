@@ -81,7 +81,7 @@ class App extends Component {
           />)}
           <AddPlayerForm
             addPlayer={this.handleAddPlayer}
-            newPlayerId={this.state.players.length + 1}
+            newPlayerId={this.state.players[this.state.players.length -1].id + 1}
           />
         </div>
       </main>

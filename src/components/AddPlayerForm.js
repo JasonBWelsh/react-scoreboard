@@ -19,11 +19,12 @@ class AddPlayerForm extends Component {
     };
     console.log('DRD __ `handleSubmit` and `player`:::', player);
     this.props.addPlayer(player);
+    this.setState({value: ''});
   }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="Enter a player's name"
@@ -33,7 +34,6 @@ class AddPlayerForm extends Component {
         <input
           type="submit"
           value="Add Player"
-          onClick={this.handleSubmit}
         />
       </form>
     );
