@@ -12,14 +12,7 @@ class AddPlayerForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // let player = {
-    //   playerName: this.state.value,
-    //   id: this.props.newPlayerId,
-    //   score: 0
-    // };
-    // console.log('DRD __ `handleSubmit` and `name`:::', name);
     this.props.addPlayer(this.state.value);
-    console.log('DRD __ logging state value!!', this.state.value);
     this.setState({value: ''});
   }
 

@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   handleRemovePlayer = (id) => {
-    console.log('DRD __ `handleRemovePlayer');
     this.setState( prevState => {
       return {
         players: prevState.players.filter( p => p.id !== id )
@@ -41,8 +40,6 @@ class App extends Component {
   }
 
   handleScoreChange = (index, delta) => {
-    console.log('DRD __ `handleScoreChange');
-    console.log('DRD __ `handleScoreChange` logging `index` and `delta`:::', index, delta);
     this.setState( prevState => {
       return {
         score: prevState.players[index].score += delta
@@ -51,23 +48,20 @@ class App extends Component {
   }
 
   handleAddPlayer = (name) => {
-    console.log('DRD __ inside `handleAddPlayer` logging `name`:::', name);
     let newPlayerId = this.state.players[this.state.players.length - 1].id + 1;
-    this.setState({
-      players: [
-        ...this.state.players,
-        {
-          playerName: name,
-          id: newPlayerId,
-          score: 0
-        }
-      ]
+    let newPlayer = {
+      playerName: name,
+      id: newPlayerId,
+      score: 0
+    };
+    this.setState( prevState => {
+      return {
+        players: [
+          ...prevState.players,
+          newPlayer
+        ]
+      };
     });
-    // this.setState( prevState => {
-    //   return {
-    //     players: [...prevState.players, name]
-    //   };
-    // });
   }
 
   render() {
