@@ -30,6 +30,10 @@ class StopWatch extends Component {
     this.intervalID = setInterval(() => this.tick(), 100);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
   tick = () => {
     console.log('DRD __  `tick`');
     if (this.state.isRunning) {
