@@ -17,3 +17,7 @@ Header.propTypes = {
   players: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string
 };
+
+Header.defaultProps = {
+  title: 'Scoreboard'
+};
