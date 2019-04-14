@@ -66,6 +66,19 @@ class App extends Component {
 
   render() {
 
+    // Experiment
+    let highScore = 0;
+    let x = this.state.players.filter(player => {
+      console.log('X player:::', player);
+      if (player.score >= highScore) {
+        highScore = player.score;
+      }
+      return player.score >= highScore;
+    });
+    console.log('DRD __ logging `x`:::', x);
+    console.log('DRD logging `highScore`:::', highScore);
+    //
+
     return (
       <main className="app-wrapper">
         <div className="scoreboard">
