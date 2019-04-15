@@ -47,9 +47,10 @@ body {
 }
 
 /* utility classes */
-.top-score {
+.is-high-score {
   background: whitesmoke;
   color: #282c34;
+  font-weight: bold;
 }
 
 /* Counter */

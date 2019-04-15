@@ -11,22 +11,26 @@ class App extends Component {
       {
         playerName: 'Arwen',
         id: 1,
-        score: 0
+        score: 0,
+        isHighScore: false
       },
       {
         playerName: 'Moya',
         id: 2,
-        score: 0
+        score: 0,
+        isHighScore: false
       },
       {
         playerName: 'Senor',
         id: 3,
-        score: 0
+        score: 0,
+        isHighScore: false
       },
       {
         playerName: 'Lily',
         id: 4,
-        score: 0
+        score: 0,
+        isHighScore: false
       }
     ]
   }
@@ -64,20 +68,18 @@ class App extends Component {
     });
   }
 
+  getHighScore = () => {
+    console.log('DRD __ `getHighScore`');
+    const scores = this.state.players.map(p => p.score);
+    const highScore = Math.max(...scores);
+    console.log('DRD __ logging `scores`:::', scores);
+    console.log('DRD __ logging `highScore`:::', highScore);
+    return highScore ? highScore : null;
+  }
+
   render() {
 
-    // Experiment
-    let highScore = 0;
-    let x = this.state.players.filter(player => {
-      console.log('X player:::', player);
-      if (player.score >= highScore) {
-        highScore = player.score;
-      }
-      return player.score >= highScore;
-    });
-    console.log('DRD __ logging `x`:::', x);
-    console.log('DRD logging `highScore`:::', highScore);
-    //
+    const highScore = this.getHighScore();
 
     return (
       <main className="app-wrapper">
@@ -85,8 +87,6 @@ class App extends Component {
         <Header
           title="Scoreboard"
           players={this.state.players}
-          // totalPlayers={this.state.players.length}
-          // totalPoints={this.state.players.reduce((total, player) => total += player.score, 0)}
         />
         {/* generate Player component for each player in array */}
         {this.state.players.map((player, index) =>
@@ -98,6 +98,7 @@ class App extends Component {
             index={index}
             removePlayer={this.handleRemovePlayer}
             changeScore={this.handleScoreChange}
+            isHighScore={highScore === player.score}
           />)}
           <AddPlayerForm
             addPlayer={this.handleAddPlayer}

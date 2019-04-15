@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export const Counter = ({ index, score, changeScore }) => {
+class Counter extends Component  {
+
+  render() {
+
+    const { index, score, changeScore } = this.props;
 
     return (
         <div className="counter">
@@ -17,6 +21,7 @@ export const Counter = ({ index, score, changeScore }) => {
             onClick={() => changeScore(index, 1)}> + </button>
         </div>
     );
+  }
 }
 
 Counter.propTypes = {
@@ -24,3 +29,5 @@ Counter.propTypes = {
    score: PropTypes.number,
    changeScore: PropTypes.func
 };
+
+export default Counter;
