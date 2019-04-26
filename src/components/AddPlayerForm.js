@@ -8,7 +8,7 @@ class AddPlayerForm extends Component {
   };
 
   static propTypes = {
-    addPlayer: PropTypes.func
+    addPlayer: PropTypes.func.isRequired
   }
 
   handleValueChange = (e) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Stats = ({  players }) => {
+export const Stats = ({ players }) => {
 
   let totalPlayers = players.length;
   let totalPoints = players.reduce((total, player) => total + player.score,0);
