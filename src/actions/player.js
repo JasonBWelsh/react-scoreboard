@@ -7,10 +7,10 @@ export const addPlayer = name => {
     };
 };
 
-export const removePlayer = id => {
+export const removePlayer = (index, id) => {
     return {
         type: PlayerActionTypes.REMOVE_PLAYER,
-        // index, // I need this? 
+        index, // I need this? 
         id
     }
 };

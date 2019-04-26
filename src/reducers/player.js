@@ -32,11 +32,11 @@ export default function Player(state=initialState, action) {
 
         case PlayerActionTypes.REMOVE_PLAYER:
             console.log('DRD __ REMOVE_PLAYER action');
-            // return [
-            //     ...state.slice(0, action.index),
-            //     ...state.slice(action.index + 1)
-            // ];
-            return state.filter(p => p.id !== id);
+            return [
+                ...state.slice(0, action.index),
+                ...state.slice(action.index + 1)
+            ];
+            // return state.filter(p => p.id !== id);
 
         case PlayerActionTypes.SCORE_CHANGE:
             console.log('DRD __ SCORE_CHANGE action');
@@ -52,7 +52,7 @@ export default function Player(state=initialState, action) {
 
         case PlayerActionTypes.ADD_PLAYER:
             console.log('DRD __ ADD_PLAYER action'); 
-            rreturn [
+            return [
                 ...state,
                 {
                     playerName: action.name,
