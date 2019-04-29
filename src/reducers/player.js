@@ -30,6 +30,18 @@ const initialState = [
 export default function Player(state=initialState, action) {
     switch(action.type) {
 
+        case PlayerActionTypes.ADD_PLAYER:
+        console.log('DRD __ ADD_PLAYER action'); 
+        return [
+            ...state,
+            {
+                playerName: action.name,
+                id: action.id, // will this work?
+                score: 0,
+                isHighScore: false
+            }
+        ];
+
         case PlayerActionTypes.REMOVE_PLAYER:
             console.log('DRD __ REMOVE_PLAYER action');
             return [
@@ -49,18 +61,6 @@ export default function Player(state=initialState, action) {
                 }
                 return player;
             });
-
-        case PlayerActionTypes.ADD_PLAYER:
-            console.log('DRD __ ADD_PLAYER action'); 
-            return [
-                ...state,
-                {
-                    playerName: action.name,
-                    id: action.id, // will this work?
-                    score: 0,
-                    isHighScore: false
-                }
-            ];
         default:
             return state;
     }

@@ -1,9 +1,10 @@
 import * as PlayerActionTypes from '../actiontypes/player';
 
-export const addPlayer = name => {
+export const addPlayer = (name, id)=> {
     return {
         type: PlayerActionTypes.ADD_PLAYER,
-        name
+        name,
+        id
     };
 };
 
